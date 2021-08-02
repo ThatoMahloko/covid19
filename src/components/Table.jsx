@@ -1,48 +1,48 @@
 import React, { useState } from 'react'
 import { v1 as uuid } from 'uuid';
 import FormAddCells from './FormAddCells';
-
+import '../App.css'
 
 const Table = () => {
     const [cells, setCells] = useState([
-        { name: '', lastName: '', day: '', contactNumber: '', Email: '',temperature:'',internationalTravel:'', symptoms:''  id: 0 }
+        { name: '', lastName: '', day: '', contactNumber: '', Email: '', temperature: '', internationalTravel: '', symptoms: '', id: null }
     ]);
-    const addEntry = (name, lastName, day, contactNumber, Email, id) => {
-        setCells([...cells, { name, lastName, day, contactNumber, Email, id: uuid() }])
+    const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id) => {
+        setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id: uuid() }])
     }
 
     return (
-        <div>
-            <table>
-                <thead class="thead-dark">
+        <div style={{ textAlign: "center" }}>
+            <table className="table">
+                <thead className="thead-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Day</th>
-                        <th scope="col">Contact number</th>
-                        <th scope="col">email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Day</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Temerature</th>
+                        <th>International Travel</th>
+                        <th>Symptoms</th>
                     </tr>
-                </thead>
-                <tbody>
                     {cells.map(entry => {
                         return (
-                            <tr>
-                                <th scope="row">{entry.id}</th>
-                                <th>{entry.name}</th>
-                                <th>{entry.lastName}</th>
-                                <th>{entry.day}</th>
-                                <th>{entry.contactNumber}</th>
-                                <th>{entry.Email}</th>
+                            <tr key={entry.id}>
+                                <td>{entry.name}</td>
+                                <td>{entry.lastName}</td>
+                                <td>{entry.day}</td>
+                                <td>{entry.contactNumber}</td>
+                                <td>{entry.Email}</td>
+                                <td>{entry.temperature}</td>
+                                <td>{entry.internationalTravel}</td>
+                                <td>{entry.symptoms}</td>
                             </tr>
-
-                        )
+                        );
                     })}
-
-                </tbody>
+                </thead>
             </table>
 
-            <FormAddCells addEntry={addEntry}/>
+            <FormAddCells addEntry={addEntry} />
         </div>
     )
 }

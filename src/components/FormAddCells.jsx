@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 const FormAddCells = ({ addEntry }) => {
+
+
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -27,34 +29,34 @@ const FormAddCells = ({ addEntry }) => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Enter Name</label>
-                    <input type="text" class="form-control" required onChange={(e) => setName(e.target.value)}/>
+            <form onSubmit={handleSubmit} >
+                <div >
+                    <h4><label >Enter Name</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setName(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Enter LastName</label>
-                    <input type="text" class="form-control" required onChange={(e) => setLastName(e.target.value)}/>
+                    <h4><label >Enter LastName</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setLastName(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Enter Day</label>
-                    <input type="text" class="form-control" required onChange={(e) => setDay(e.target.value)}/>
+                    <h4><label >Enter Day</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setDay(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Enter Contact details</label>
-                    <input type="text" class="form-control" required onChange={(e) => setContactNumber(e.target.value)}/>
-                    
+                    <h4><label >Enter Contact details</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setContactNumber(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Enter Email Address</label>
-                    <input type="text" class="form-control" required onChange={(e) => setEmail(e.target.value)}/>
+                    <h4><label >Enter Email Address</label></h4>
+                    <input type="email" class="form-control w-50" required onChange={(e) => setEmail(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Enter Temperature</label>
-                    <input type="text" class="form-control" required onChange={(e) => setTemperature(e.target.value)}/>
+                    <h4><label >Enter Temperature</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setTemperature(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Have you traveled internationaly in the past 30 days</label>
-                    <input type="text" class="form-control" required onChange={(e) => setInternationalTravel(e.target.value)}/>
+                    <h4><label >Have you traveled internationaly in the past 30 days?</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setInternationalTravel(e.target.value)} />
 
-                    <label for="exampleInputEmail1">Do you have any flulike syptoms e.g sore throat etc..</label>
-                    <input type="text" class="form-control" required onChange={(e) => setSymptoms(e.target.value)}/>
+                    <h4><label >Do you have any flulike syptoms e.g sore throat etc..?</label></h4>
+                    <input type="text" class="form-control w-50" required onChange={(e) => setSymptoms(e.target.value)} />
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-dark mt-5 w-50 h-10">Submit</button>
+
                 </div>
             </form>
         </div>
