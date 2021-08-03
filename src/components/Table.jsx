@@ -10,12 +10,16 @@ const Table = () => {
     const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id) => {
         setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id: uuid() }])
     }
+    
+    const handleDelete = val =>{
+        setCells(cells.filter(dataEntry => dataEntry.id !== val));        
+    }
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center" }} className="">
             <FormAddCells addEntry={addEntry} />
             {cells.length == 0 ? <div> </div> : <table className="table">
-                <thead className="thead-dark">
+                <thead className="thead-dark mt-5">
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -37,6 +41,7 @@ const Table = () => {
                                 <td>{entry.temperature}</td>
                                 <td>{entry.internationalTravel}</td>
                                 <td>{entry.symptoms}</td>
+                                <td><input type="button" className="btn  bg-dark" value="delete" onClick={()=>handleDelete(entry.id)}/></td>
                             </tr>
                         );
                     })}

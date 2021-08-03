@@ -29,7 +29,7 @@ const FormAddCells = ({ addEntry }) => {
     }
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className="mb-5">
                 <div >
                     <h4><label >Enter Name</label></h4>
                     <input type="text" className="form-control w-50" placeholder="Enter Name" required onChange={(e) => setName(e.target.value)} />
