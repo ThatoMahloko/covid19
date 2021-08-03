@@ -5,7 +5,7 @@ import '../App.css'
 
 const Table = () => {
     const [cells, setCells] = useState([
-        { name: '', lastName: '', day: '', contactNumber: '', Email: '', temperature: '', internationalTravel: '', symptoms: '', id: null }
+
     ]);
     const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id) => {
         setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id: uuid() }])
@@ -13,7 +13,8 @@ const Table = () => {
 
     return (
         <div style={{ textAlign: "center" }}>
-            <table className="table">
+            <FormAddCells addEntry={addEntry} />
+            {cells.length == 0 ? <div> </div> : <table className="table">
                 <thead className="thead-dark">
                     <tr>
                         <th>First Name</th>
@@ -40,9 +41,7 @@ const Table = () => {
                         );
                     })}
                 </thead>
-            </table>
-
-            <FormAddCells addEntry={addEntry} />
+            </table>}
         </div>
     )
 }

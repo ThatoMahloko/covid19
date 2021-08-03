@@ -16,7 +16,7 @@ const FormAddCells = ({ addEntry }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addEntry(id, name, lastName, day, contactNumber, email, temperature, internationalTravel, symptoms);
+        addEntry(name, lastName, day, contactNumber, email, temperature, internationalTravel, symptoms, id);
         setId('');
         setName('');
         setLastName('');
