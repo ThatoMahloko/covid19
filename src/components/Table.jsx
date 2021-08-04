@@ -7,8 +7,8 @@ const Table = () => {
     const [cells, setCells] = useState([
 
     ]);
-    const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id) => {
-        setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, id: uuid() }])
+    const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath, id) => {
+        setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath, id: uuid() }])
     }
     
     const handleDelete = val =>{
@@ -18,7 +18,7 @@ const Table = () => {
     return (
         <div style={{ textAlign: "center" }} className="">
             <FormAddCells addEntry={addEntry} />
-            {cells.length == 0 ? <div> </div> : <table className="table">
+            {cells.length === 0 ? <div> </div> : <table className="table">
                 <thead className="thead-dark mt-5">
                     <tr>
                         <th>First Name</th>
@@ -29,6 +29,9 @@ const Table = () => {
                         <th>Temerature</th>
                         <th>International Travel</th>
                         <th>Symptoms</th>
+                        <th>Throat</th>
+                        <th>Cough</th>
+                        <th>Short breath</th>
                     </tr>
                     {cells.map(entry => {
                         return (
@@ -41,6 +44,9 @@ const Table = () => {
                                 <td>{entry.temperature}</td>
                                 <td>{entry.internationalTravel}</td>
                                 <td>{entry.symptoms}</td>
+                                <td>{entry.soreThroat ? "yes":"no"}</td>
+                                <td>{entry.cough  ? "yes":"no"}</td>
+                                <td>{entry.shortnesOfBreath  ? "yes":"no"}</td>
                                 <td><input type="button" className="btn  bg-dark" value="delete" onClick={()=>handleDelete(entry.id)}/></td>
                             </tr>
                         );
