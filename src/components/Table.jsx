@@ -7,8 +7,8 @@ const Table = () => {
     const [cells, setCells] = useState([
 
     ]);
-    const addEntry = (name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath, id) => {
-        setCells([...cells, { name, lastName, day, contactNumber, Email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath, id: uuid() }])
+    const addEntry = (name, lastName, day, contactNumber, email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath) => {
+        setCells([...cells, {name, lastName, day, contactNumber, email, temperature, internationalTravel, symptoms, soreThroat, cough, shortnesOfBreath, id: uuid() }])
     }
     
     const handleDelete = val =>{
